@@ -107,10 +107,8 @@ download_package() {
   local tmp_dir="/tmp/hermes-ru-locale-pkg"
   rm -rf "$tmp_dir"
   mkdir -p "$tmp_dir"
-  if [ ! -f "$tmp_zip" ]; then
-    log "Скачивание пакета перевода ($VERSION)..."
-    curl -sSL -o "$tmp_zip" "$ASSET_URL"
-  fi
+  log "Скачивание пакета перевода ($VERSION)..."
+  curl -sSL -o "$tmp_zip" "$ASSET_URL"
   log "Распаковка..."
   unzip -qo "$tmp_zip" -d "$tmp_dir"
   PKG_DIR="$tmp_dir"
@@ -141,10 +139,14 @@ apply_files() {
 build() {
   log "Сборка приложения (несколько минут)..."
   cd "$HERMES_DIR/apps/desktop"
-  if npm run pack 2>&1 | tail -5; then
+  set +e
+  npm run pack 2>&1 | tail -5
+  local rc=${PIPESTATUS[0]}
+  set -e
+  if [ "$rc" -eq 0 ]; then
     log "Сборка завершена успешно"
   else
-    error "Ошибка сборки. Проверьте логи выше."
+    error "Ошибка сборки (код $rc). Проверьте логи выше."
   fi
 }
 
