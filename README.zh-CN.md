@@ -1,202 +1,163 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Hermes Agent" width="100%">
+  <img src="https://img.shields.io/badge/🇷🇺_Hermes_Desktop-Russian_locale_v2-FFD700?style=for-the-badge&labelColor=1a1a2e" alt="Hermes Desktop Russian Locale" width="100%">
 </p>
 
-# Hermes Agent ☤
+<h1 align="center">🇷🇺 Hermes Desktop — 俄语翻译 (v2)</h1>
 
 <p align="center">
-  <a href="https://hermes-agent.nousresearch.com/docs/"><img src="https://img.shields.io/badge/Docs-hermes--agent.nousresearch.com-FFD700?style=for-the-badge" alt="Documentation"></a>
-  <a href="https://discord.gg/NousResearch"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-  <a href="https://github.com/NousResearch/hermes-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
-  <a href="https://nousresearch.com"><img src="https://img.shields.io/badge/Built%20by-Nous%20Research-blueviolet?style=for-the-badge" alt="Built by Nous Research"></a>
-  <a href="README.md"><img src="https://img.shields.io/badge/Lang-English-lightgrey?style=for-the-badge" alt="English"></a>
-  <a href="README.ur-pk.md"><img src="https://img.shields.io/badge/Lang-اردو-green?style=for-the-badge" alt="اردو"></a>
+  <a href="https://github.com/NousResearch/hermes-agent"><img src="https://img.shields.io/badge/Hermes_Agent-Official_Repo-FFD700?style=for-the-badge&logo=github" alt="Hermes Agent"></a>
+  <a href="https://github.com/warment/hermes-agent/releases"><img src="https://img.shields.io/github/v/release/warment/hermes-agent?style=for-the-badge&color=green" alt="Release"></a>
+  <a href="https://github.com/NousResearch/hermes-agent/pull/42705"><img src="https://img.shields.io/badge/PR-#42705-blue?style=for-the-badge" alt="PR #42705"></a>
 </p>
 
-**由 [Nous Research](https://nousresearch.com) 构建的自进化 AI 代理。** 它是唯一内置学习闭环的智能代理——从经验中创建技能，在使用中改进技能，主动持久化知识，搜索过往对话，并在跨会话中逐步构建对你的深度理解。可以在 $5 的 VPS 上运行，也可以在 GPU 集群上运行，或者使用几乎零成本的 Serverless 基础设施。它不绑定你的笔记本——你可以在 Telegram 上与它对话，而它在云端 VM 上工作。
+<p align="center">
+  <b>Hermes Agent 桌面应用的完整俄语本地化 — 约 99% 的界面文本。</b><br>
+  [<a href="README.md">Русский</a>] · [<a href="README.en.md">English</a>] · [<b>中文</b>] · [<a href="README.ur-pk.md">اردو</a>]
+</p>
 
-支持任意模型——[Nous Portal](https://portal.nousresearch.com)、[OpenRouter](https://openrouter.ai)（200+ 模型）、[NVIDIA NIM](https://build.nvidia.com)（Nemotron）、[小米 MiMo](https://platform.xiaomimimo.com)、[z.ai/GLM](https://z.ai)、[Kimi/Moonshot](https://platform.moonshot.ai)、[MiniMax](https://www.minimax.io)、[Hugging Face](https://huggingface.co)、OpenAI，或自定义端点。使用 `hermes model` 即可切换——无需改代码，无锁定。
+---
+
+## ⚡ 本地化发布
+
+| 版本 | 链接 | 说明 |
+|------|------|------|
+| **v2.0.0-ru-locale** | [发布](https://github.com/warment/hermes-agent/releases/tag/v2.0.0-ru-locale) | **当前版本。** 完整俄语本地化（约 99%），41 个文件 |
+| v1.0.0-ru-locale | [发布](https://github.com/warment/hermes-agent/releases/tag/v1.0.0-ru-locale) | 存档。第一版（i18n 文件） |
+
+需要 Hermes Agent **v0.19.1** (2026-07-30) 或更新版本。
+
+---
+
+## ✨ 翻译内容
 
 <table>
-<tr><td><b>真正的终端界面</b></td><td>完整的 TUI，支持多行编辑、斜杠命令自动补全、对话历史、中断重定向和流式工具输出。</td></tr>
-<tr><td><b>随你所在</b></td><td>Telegram、Discord、Slack、WhatsApp、Signal 和 CLI——全部从单个网关进程运行。语音备忘录转写、跨平台对话连续性。</td></tr>
-<tr><td><b>闭环学习</b></td><td>代理管理记忆并定期自我提醒。复杂任务后自动创建技能。技能在使用中自我改进。FTS5 会话搜索配合 LLM 摘要实现跨会话回溯。<a href="https://github.com/plastic-labs/honcho">Honcho</a> 辩证式用户建模。兼容 <a href="https://agentskills.io">agentskills.io</a> 开放标准。</td></tr>
-<tr><td><b>定时自动化</b></td><td>内置 cron 调度器，支持向任何平台投递。日报、夜间备份、周审计——全部用自然语言描述，无人值守运行。</td></tr>
-<tr><td><b>委派与并行</b></td><td>生成隔离子代理处理并行工作流。编写 Python 脚本通过 RPC 调用工具，将多步管道压缩为零上下文开销的轮次。</td></tr>
-<tr><td><b>随处运行</b></td><td>六种终端后端——本地、Docker、SSH、Daytona、Singularity 和 Modal。Daytona 和 Modal 提供 Serverless 持久化——代理环境空闲时休眠、按需唤醒，空闲期间几乎零成本。$5 VPS 或 GPU 集群都能跑。</td></tr>
-<tr><td><b>研究就绪</b></td><td>批量轨迹生成、轨迹压缩——用于训练下一代工具调用模型。</td></tr>
+<tr><td><b>全部 38 个 i18n 区块</b></td><td><code>ru.ts</code> 约 3000 行：菜单、设置、账单、通知、快捷键、覆盖窗口、启动画面、安装、引导、状态栏</td></tr>
+<tr><td><b>设置字段</b></td><td><code>ru-constants.ts</code>：所有字段的标签和描述</td></tr>
+<tr><td><b>账单</b></td><td>验证页面、套餐、自动充值、错误消息</td></tr>
+<tr><td><b>应用卸载</b></td><td>危险区：卸载选项、确认、警告</td></tr>
+<tr><td><b>Computer Use</b></td><td>权限、驱动健康、就绪状态、确认对话框</td></tr>
+<tr><td><b>MoA 预设</b></td><td>Mixture of Agents：预设、聚合器、创建/删除</td></tr>
+<tr><td><b>Quick Entry 与宠物覆盖层</b></td><td>独立渲染窗口：已包装 I18nProvider，全部文本</td></tr>
+<tr><td><b>表情选择器</b></td><td>搜索、加载、「更多表情」、「Hermes 已回应」</td></tr>
+<tr><td><b>星空图</b></td><td>图例、技能、记忆、时间线滑块</td></tr>
+<tr><td><b>自定义端点</b></td><td>活跃、API 密钥已设置、删除、空状态、Auto</td></tr>
+<tr><td><b>其他</b></td><td>Show options、More actions、OAuth/API key、个人资料、嵌入（Spotify/YouTube）、会话时间线、「无法打开会话」、生成参考图</td></tr>
 </table>
 
+技术性字符串有意保留不译：URL 示例、服务商品牌名、配置文件（config.yaml、SOUL.md）。
+
 ---
 
-## 快速安装
+## 📦 安装
+
+### 方式一 — 发布归档（推荐）
 
 ```bash
-curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+# 1. 从 v2.0.0-ru-locale 发布下载 hermes-ru-locale-v2.0.0.zip
+# 2. 将文件复制到源码树（覆盖）：
+cd ~/.hermes/hermes-agent
+# 解压归档并覆盖复制 apps/desktop/src
+
+# 3. 构建应用：
+cd apps/desktop
+npm run build && npm run pack
+
+# 4. 安装（先退出 Hermes，Cmd+Q）：
+sudo rm -rf /Applications/Hermes.app
+sudo cp -R release/mac-arm64/Hermes.app /Applications/
 ```
 
-支持 Linux、macOS、WSL2 和 Android (Termux)。安装程序会自动处理平台特定的配置。
-
-> **Android / Termux：** 已测试的手动安装路径请参考 [Termux 指南](https://hermes-agent.nousresearch.com/docs/getting-started/termux)。在 Termux 上，Hermes 会安装精选的 `.[termux]` 扩展，因为完整的 `.[all]` 扩展会拉取 Android 不兼容的语音依赖。
->
-> **Windows：** 原生 Windows 不受支持。请安装 [WSL2](https://learn.microsoft.com/zh-cn/windows/wsl/install) 并运行上述命令。
-
-安装后：
+### 方式二 — 分支 feat/desktop-ru-locale（开发者）
 
 ```bash
-source ~/.bashrc    # 重新加载 shell（或: source ~/.zshrc）
-hermes              # 开始对话！
+git fetch origin feat/desktop-ru-locale
+git checkout feat/desktop-ru-locale
+cd apps/desktop && npm run build && npm run pack
 ```
 
+启动后：**设置** → **外观** → **Русский**
+
 ---
 
-## 快速入门
+## 🛡️ 自动更新
 
-```bash
-hermes              # 交互式 CLI — 开始对话
-hermes model        # 选择 LLM 提供商和模型
-hermes tools        # 配置启用的工具
-hermes config set   # 设置单个配置项
-hermes gateway      # 启动消息网关（Telegram、Discord 等）
-hermes setup        # 运行完整设置向导（一次性配置所有内容）
-hermes claw migrate # 从 OpenClaw 迁移（如果来自 OpenClaw）
-hermes update       # 更新到最新版本
-hermes doctor       # 诊断问题
+Hermes 更新后，本地化通过 macOS LaunchAgent **自动重新应用** — 脚本监控源文件并在更新时重新复制翻译。
+
+---
+
+## 📁 包结构
+
 ```
-
-📖 **[完整文档 →](https://hermes-agent.nousresearch.com/docs/)**
-
----
-
-## 省去到处收集 API Key — Nous Portal
-
-Hermes 始终允许你使用任意服务商，这点不会改变。但如果你不想为模型、网页搜索、图像生成、TTS、云浏览器分别去申请五个不同的 API Key，**[Nous Portal](https://portal.nousresearch.com)** 用一个订阅就能覆盖全部：
-
-- **300+ 模型** — 用 `/model <name>` 随时切换
-- **Tool Gateway** — 网页搜索（Firecrawl）、图像生成（FAL）、文本转语音（OpenAI）、云浏览器（Browser Use），全部通过订阅托管。无需额外注册任何账户。
-
-全新安装时一条命令即可：
-
-```bash
-hermes setup --portal
-```
-
-它会通过 OAuth 登录、把 Nous 设为推理服务商，并启用 Tool Gateway。随时用 `hermes portal info` 查看路由状态。完整说明见 [Tool Gateway 文档](https://hermes-agent.nousresearch.com/docs/user-guide/features/tool-gateway)。
-
-你随时可以按工具单独切回自己的 API Key — Gateway 是按工具粒度生效的，不是一刀切。
-
----
-
-## CLI 与消息平台 快速对照
-
-Hermes 有两种入口：用 `hermes` 启动终端 UI，或运行网关从 Telegram、Discord、Slack、WhatsApp、Signal 或 Email 与之对话。进入对话后，许多斜杠命令在两种界面中通用。
-
-| 操作 | CLI | 消息平台 |
-|------|-----|----------|
-| 开始对话 | `hermes` | 运行 `hermes gateway setup` + `hermes gateway start`，然后给机器人发消息 |
-| 开始新对话 | `/new` 或 `/reset` | `/new` 或 `/reset` |
-| 更换模型 | `/model [provider:model]` | `/model [provider:model]` |
-| 设置人格 | `/personality [name]` | `/personality [name]` |
-| 重试或撤销上一轮 | `/retry`、`/undo` | `/retry`、`/undo` |
-| 压缩上下文 / 查看用量 | `/compress`、`/usage`、`/insights [--days N]` | `/compress`、`/usage`、`/insights [days]` |
-| 浏览技能 | `/skills` 或 `/<skill-name>` | `/skills` 或 `/<skill-name>` |
-| 中断当前工作 | `Ctrl+C` 或发送新消息 | `/stop` 或发送新消息 |
-| 平台特定状态 | `/platforms` | `/status`、`/sethome` |
-
-完整命令列表请参阅 [CLI 指南](https://hermes-agent.nousresearch.com/docs/user-guide/cli) 和 [消息网关指南](https://hermes-agent.nousresearch.com/docs/user-guide/messaging)。
-
----
-
-## 文档
-
-所有文档位于 **[hermes-agent.nousresearch.com/docs](https://hermes-agent.nousresearch.com/docs/)**：
-
-| 章节 | 内容 |
-|------|------|
-| [快速开始](https://hermes-agent.nousresearch.com/docs/getting-started/quickstart) | 安装 → 设置 → 2 分钟内开始首次对话 |
-| [CLI 使用](https://hermes-agent.nousresearch.com/docs/user-guide/cli) | 命令、快捷键、人格、会话 |
-| [配置](https://hermes-agent.nousresearch.com/docs/user-guide/configuration) | 配置文件、提供商、模型、所有选项 |
-| [消息网关](https://hermes-agent.nousresearch.com/docs/user-guide/messaging) | Telegram、Discord、Slack、WhatsApp、Signal、Home Assistant |
-| [安全](https://hermes-agent.nousresearch.com/docs/user-guide/security) | 命令审批、DM 配对、容器隔离 |
-| [工具与工具集](https://hermes-agent.nousresearch.com/docs/user-guide/features/tools) | 40+ 工具、工具集系统、终端后端 |
-| [技能系统](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills) | 过程记忆、技能中心、创建技能 |
-| [记忆](https://hermes-agent.nousresearch.com/docs/user-guide/features/memory) | 持久记忆、用户画像、最佳实践 |
-| [MCP 集成](https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp) | 连接任意 MCP 服务器扩展能力 |
-| [定时调度](https://hermes-agent.nousresearch.com/docs/user-guide/features/cron) | 定时任务与平台投递 |
-| [上下文文件](https://hermes-agent.nousresearch.com/docs/user-guide/features/context-files) | 影响每次对话的项目上下文 |
-| [架构](https://hermes-agent.nousresearch.com/docs/developer-guide/architecture) | 项目结构、代理循环、关键类 |
-| [贡献](https://hermes-agent.nousresearch.com/docs/developer-guide/contributing) | 开发设置、PR 流程、代码风格 |
-| [CLI 参考](https://hermes-agent.nousresearch.com/docs/reference/cli-commands) | 所有命令和标志 |
-| [环境变量](https://hermes-agent.nousresearch.com/docs/reference/environment-variables) | 完整环境变量参考 |
-
----
-
-## 从 OpenClaw 迁移
-
-如果你来自 OpenClaw，Hermes 可以自动导入你的设置、记忆、技能和 API 密钥。
-
-**首次安装时：** 安装向导（`hermes setup`）会自动检测 `~/.openclaw` 并在配置开始前提供迁移选项。
-
-**安装后任意时间：**
-
-```bash
-hermes claw migrate              # 交互式迁移（完整预设）
-hermes claw migrate --dry-run    # 预览将要迁移的内容
-hermes claw migrate --preset user-data   # 仅迁移用户数据，不含密钥
-hermes claw migrate --overwrite  # 覆盖已有冲突
-```
-
-导入内容：
-- **SOUL.md** — 人格文件
-- **记忆** — MEMORY.md 和 USER.md 条目
-- **技能** — 用户创建的技能 → `~/.hermes/skills/openclaw-imports/`
-- **命令白名单** — 审批模式
-- **消息设置** — 平台配置、允许用户、工作目录
-- **API 密钥** — 白名单中的密钥（Telegram、OpenRouter、OpenAI、Anthropic、ElevenLabs）
-- **TTS 资产** — 工作区音频文件
-- **工作区指令** — AGENTS.md（使用 `--workspace-target`）
-
-使用 `hermes claw migrate --help` 查看所有选项，或使用 `openclaw-migration` 技能进行交互式代理引导迁移（含干运行预览）。
-
----
-
-## 贡献
-
-欢迎贡献！请参阅 [贡献指南](https://hermes-agent.nousresearch.com/docs/developer-guide/contributing) 了解开发设置、代码风格和 PR 流程。
-
-贡献者快速开始——克隆并使用 `setup-hermes.sh`：
-
-```bash
-git clone https://github.com/NousResearch/hermes-agent.git
-cd hermes-agent
-./setup-hermes.sh     # 安装 uv、创建 venv、安装 .[all]、创建符号链接 ~/.local/bin/hermes
-./hermes              # 自动检测 venv，无需先 source
-```
-
-手动安装（等效于上述命令）：
-
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-uv venv venv --python 3.11
-source venv/bin/activate
-uv pip install -e ".[all,dev]"
-python -m pytest tests/ -q
+hermes-ru-locale-v2.0.0/
+├── README.md                # 文档 (RU/EN/ZH)
+├── install.sh               # 安装器（自动查找 hermes-agent、备份、构建）
+└── apps/desktop/src/
+    ├── i18n/                # ru.ts（约 3000 行）+ 同步的 en/zh/types/catalog/languages
+    ├── app/                 # 已翻译组件（设置、账单、覆盖窗口）
+    └── components/          # 表情选择器、嵌入、时间线、宠物蛋等
 ```
 
 ---
 
-## 社区
+## 🔧 工作原理
 
-- 💬 [Discord](https://discord.gg/NousResearch)
-- 📚 [技能中心](https://agentskills.io)
-- 🐛 [问题反馈](https://github.com/NousResearch/hermes-agent/issues)
-- 💡 [讨论区](https://github.com/NousResearch/hermes-agent/discussions)
-- 🔌 [HermesClaw](https://github.com/AaronWong1999/hermesclaw) — 社区微信桥接：在同一微信账号上运行 Hermes Agent 和 OpenClaw。
+1. `install.sh` 在标准位置查找 Hermes 安装（`~/.hermes/hermes-agent` 等）
+2. 备份全部 41 个文件到 `.ru-backup-*`（用于回滚）
+3. 复制完整的 i18n 文件（en/zh/types 始终同步 — 类型不会损坏）
+4. 将已翻译组件覆盖到源码
+5. 重新构建应用（`npm run pack`）
+6. 安装 LaunchAgent 以便更新后自动重新应用
 
 ---
 
-## 许可证
+## ✅ 验证
 
-MIT — 详见 [LICENSE](LICENSE)。
+- `tsc --noEmit` → **0 错误**
+- 694 个测试通过（6 个已知的 localStorage 失败与翻译无关）
+- 俄语字符串已在构建的 `app.asar` 中确认
 
-由 [Nous Research](https://nousresearch.com) 构建。
+---
+
+## 🗑️ 回滚
+
+从 git 恢复原始文件：
+
+```bash
+cd ~/.hermes/hermes-agent && git checkout apps/desktop/src
+npm run build && npm run pack
+```
+
+---
+
+## 📋 要求
+
+- macOS（用于 LaunchAgent 自动修补）
+- 标准位置的 Hermes Agent v0.19.1+
+- Node.js ≥ 20 和 npm（用于构建）
+
+---
+
+## 📣 上游
+
+主仓库中的 PR：**[#42705 — feat(i18n/desktop): add Russian (ru) locale](https://github.com/NousResearch/hermes-agent/pull/42705)** · Issue：[#40347](https://github.com/NousResearch/hermes-agent/issues/40347)
+
+---
+
+## 🤝 贡献
+
+欢迎：
+- 翻译成其他语言
+- 错误修复
+- 安装器改进
+
+---
+
+## 📄 许可证
+
+MIT License
+
+---
+
+<p align="center">
+  <sub>Built with ❤️ for the <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a> community</sub>
+</p>
