@@ -12,7 +12,7 @@
 
 <p align="center">
   <b>Hermes Agent 桌面应用的完整俄语本地化 — 约 99% 的界面文本。</b><br>
-  [<a href="README.md">Русский</a>] · [<a href="README.en.md">English</a>] · [<b>中文</b>] · [<a href="README.ur-pk.md">اردو</a>]
+  [<a href="README.md">Русский</a>] · [<a href="README.en.md">English</a>] · [<b>中文</b>]
 </p>
 
 ---

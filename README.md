@@ -13,7 +13,7 @@
 
 <p align="center">
   <b>Полная русификация десктопного приложения Hermes Agent — ~99% всех строк интерфейса.</b><br>
-  [<b>Русский</b>] · [<a href="README.en.md">English</a>] · [<a href="README.zh-CN.md">中文</a>] · [<a href="README.ur-pk.md">اردو</a>]
+  [<b>Русский</b>] · [<a href="README.en.md">English</a>] · [<a href="README.zh-CN.md">中文</a>]
 </p>
 
 ---

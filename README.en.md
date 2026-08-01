@@ -13,7 +13,7 @@
 
 <p align="center">
   <b>Full Russian localization of the Hermes Agent desktop app — ~99% of all UI strings.</b><br>
-  [<a href="README.md">Русский</a>] · [<b>English</b>] · [<a href="README.zh-CN.md">中文</a>] · [<a href="README.ur-pk.md">اردو</a>]
+  [<a href="README.md">Русский</a>] · [<b>English</b>] · [<a href="README.zh-CN.md">中文</a>]
 </p>
 
 ---
