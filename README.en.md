@@ -52,32 +52,35 @@ Technical strings are intentionally left untranslated: URL examples, provider br
 
 ## 📦 Installation
 
-### Option 1 — release archive (recommended)
+### Quick install — one command
 
 ```bash
-# 1. Download hermes-ru-locale-v2.0.0.zip from release v2.0.0-ru-locale
-# 2. Copy the files into the source tree (overwrite):
-cd ~/.hermes/hermes-agent
-# extract the archive and copy apps/desktop/src over
-
-# 3. Build the app:
-cd apps/desktop
-npm run build && npm run pack
-
-# 4. Install (quit Hermes first, Cmd+Q):
-sudo rm -rf /Applications/Hermes.app
-sudo cp -R release/mac-arm64/Hermes.app /Applications/
+curl -sSL https://raw.githubusercontent.com/warment/hermes-agent/main/install.sh | bash
 ```
 
-### Option 2 — branch feat/desktop-ru-locale (for developers)
+Or via git:
+
+```bash
+git clone https://github.com/warment/hermes-agent.git
+cd hermes-agent && ./install.sh
+```
+
+The script locates your Hermes install, downloads the locale package from the release, backs up, applies all 41 files and rebuilds the app. Then install into /Applications (quit Hermes first, Cmd+Q):
+
+```bash
+sudo rm -rf /Applications/Hermes.app
+sudo cp -R ~/.hermes/hermes-agent/apps/desktop/release/mac-arm64/Hermes.app /Applications/
+```
+
+After launch: **Settings** → **Appearance** → **Русский**
+
+### Branch feat/desktop-ru-locale (for developers)
 
 ```bash
 git fetch origin feat/desktop-ru-locale
 git checkout feat/desktop-ru-locale
 cd apps/desktop && npm run build && npm run pack
 ```
-
-After launch: **Settings** → **Appearance** → **Русский**
 
 ---
 
@@ -92,7 +95,6 @@ When Hermes updates, the locale is **automatically re-applied** via a macOS Laun
 ```
 hermes-ru-locale-v2.0.0/
 ├── README.md                # Docs (RU/EN/ZH)
-├── install.sh               # Installer (auto-finds hermes-agent, backup, build)
 └── apps/desktop/src/
     ├── i18n/                # ru.ts (~3000 lines) + synced en/zh/types/catalog/languages
     ├── app/                 # Translated components (settings, billing, overlays)

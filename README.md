@@ -52,32 +52,35 @@
 
 ## 📦 Установка
 
-### Вариант 1 — архив из релиза (рекомендуется)
+### Быстрая установка — одной командой
 
 ```bash
-# 1. Скачайте hermes-ru-locale-v2.0.0.zip из релиза v2.0.0-ru-locale
-# 2. Скопируйте файлы в дерево исходников (перезапись):
-cd ~/.hermes/hermes-agent
-# распакуйте архив и скопируйте apps/desktop/src поверх
-
-# 3. Соберите приложение:
-cd apps/desktop
-npm run build && npm run pack
-
-# 4. Установите (закройте Hermes, Cmd+Q):
-sudo rm -rf /Applications/Hermes.app
-sudo cp -R release/mac-arm64/Hermes.app /Applications/
+curl -sSL https://raw.githubusercontent.com/warment/hermes-agent/main/install.sh | bash
 ```
 
-### Вариант 2 — ветка feat/desktop-ru-locale (для разработчиков)
+Или через git:
+
+```bash
+git clone https://github.com/warment/hermes-agent.git
+cd hermes-agent && ./install.sh
+```
+
+Скрипт сам: найдёт установку Hermes, скачает пакет перевода из релиза, сделает бэкап, применит 41 файл и соберёт приложение. Затем установите в /Applications (закрыв Hermes, Cmd+Q):
+
+```bash
+sudo rm -rf /Applications/Hermes.app
+sudo cp -R ~/.hermes/hermes-agent/apps/desktop/release/mac-arm64/Hermes.app /Applications/
+```
+
+После запуска: **Settings** → **Appearance** → **Русский**
+
+### Ветка feat/desktop-ru-locale (для разработчиков)
 
 ```bash
 git fetch origin feat/desktop-ru-locale
 git checkout feat/desktop-ru-locale
 cd apps/desktop && npm run build && npm run pack
 ```
-
-После запуска: **Settings** → **Appearance** → **Русский**
 
 ---
 
@@ -92,7 +95,6 @@ cd apps/desktop && npm run build && npm run pack
 ```
 hermes-ru-locale-v2.0.0/
 ├── README.md                # Документация (RU/EN/ZH)
-├── install.sh               # Установщик (автопоиск hermes-agent, бэкап, сборка)
 └── apps/desktop/src/
     ├── i18n/                # ru.ts (~3000 строк) + синхронизированные en/zh/types/catalog/languages
     ├── app/                 # Переведённые компоненты (настройки, биллинг, оверлеи)

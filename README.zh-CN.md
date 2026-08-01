@@ -51,32 +51,35 @@
 
 ## 📦 安装
 
-### 方式一 — 发布归档（推荐）
+### 快速安装 — 一条命令
 
 ```bash
-# 1. 从 v2.0.0-ru-locale 发布下载 hermes-ru-locale-v2.0.0.zip
-# 2. 将文件复制到源码树（覆盖）：
-cd ~/.hermes/hermes-agent
-# 解压归档并覆盖复制 apps/desktop/src
-
-# 3. 构建应用：
-cd apps/desktop
-npm run build && npm run pack
-
-# 4. 安装（先退出 Hermes，Cmd+Q）：
-sudo rm -rf /Applications/Hermes.app
-sudo cp -R release/mac-arm64/Hermes.app /Applications/
+curl -sSL https://raw.githubusercontent.com/warment/hermes-agent/main/install.sh | bash
 ```
 
-### 方式二 — 分支 feat/desktop-ru-locale（开发者）
+或通过 git：
+
+```bash
+git clone https://github.com/warment/hermes-agent.git
+cd hermes-agent && ./install.sh
+```
+
+脚本会自动：查找 Hermes 安装位置、从发布下载语言包、备份、应用全部 41 个文件并重新构建应用。然后安装到 /Applications（先退出 Hermes，Cmd+Q）：
+
+```bash
+sudo rm -rf /Applications/Hermes.app
+sudo cp -R ~/.hermes/hermes-agent/apps/desktop/release/mac-arm64/Hermes.app /Applications/
+```
+
+启动后：**设置** → **外观** → **Русский**
+
+### 分支 feat/desktop-ru-locale（开发者）
 
 ```bash
 git fetch origin feat/desktop-ru-locale
 git checkout feat/desktop-ru-locale
 cd apps/desktop && npm run build && npm run pack
 ```
-
-启动后：**设置** → **外观** → **Русский**
 
 ---
 
@@ -91,7 +94,6 @@ Hermes 更新后，本地化通过 macOS LaunchAgent **自动重新应用** — 
 ```
 hermes-ru-locale-v2.0.0/
 ├── README.md                # 文档 (RU/EN/ZH)
-├── install.sh               # 安装器（自动查找 hermes-agent、备份、构建）
 └── apps/desktop/src/
     ├── i18n/                # ru.ts（约 3000 行）+ 同步的 en/zh/types/catalog/languages
     ├── app/                 # 已翻译组件（设置、账单、覆盖窗口）
