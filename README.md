@@ -8,6 +8,8 @@
   <a href="https://github.com/NousResearch/hermes-agent"><img src="https://img.shields.io/badge/Hermes_Agent-Official_Repo-FFD700?style=for-the-badge&logo=github" alt="Hermes Agent"></a>
   <a href="https://github.com/warment/hermes-agent/releases"><img src="https://img.shields.io/github/v/release/warment/hermes-agent?style=for-the-badge&color=green" alt="Release"></a>
   <a href="https://github.com/NousResearch/hermes-agent/pull/42705"><img src="https://img.shields.io/badge/PR-#42705-blue?style=for-the-badge" alt="PR #42705"></a>
+  <a href="https://github.com/warment/hermes-agent/releases"><img src="https://img.shields.io/github/downloads/warment/hermes-agent/total?style=for-the-badge&color=orange" alt="Downloads"></a>
+  <a href="https://github.com/warment/hermes-agent"><img src="https://img.shields.io/github/stars/warment/hermes-agent?style=for-the-badge&color=purple" alt="Stars"></a>
   <a href="https://discord.gg/NousResearch"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
 </p>
 
