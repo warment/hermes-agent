@@ -12,6 +12,7 @@
 
 <p align="center">
   <b>Hermes Agent 桌面应用的完整俄语本地化 — 约 99% 的界面文本。</b><br>
+  <b>适用于 Hermes Agent v0.19.1 (2026-07-30)</b><br>
   [<a href="README.md">Русский</a>] · [<a href="README.en.md">English</a>] · [<b>中文</b>]
 </p>
 
